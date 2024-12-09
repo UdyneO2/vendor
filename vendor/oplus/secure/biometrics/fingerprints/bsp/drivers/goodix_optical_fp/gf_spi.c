@@ -802,17 +802,17 @@ static int gf_probe(struct platform_device *pdev)
 #endif
 
     gf_dev->notifier = goodix_noti_block;
-#if defined(CONFIG_DRM_MSM)
+/*#if defined(CONFIG_DRM_MSM)
     status = msm_drm_register_client(&gf_dev->notifier);
     if (status == -1) {
         return status;
     }
-#elif defined(CONFIG_FB)
+#elif defined(CONFIG_FB)*/
     status = fb_register_client(&gf_dev->notifier);
     if (status == -1) {
         return status;
     }
-#endif
+//#endif
     wake_lock_init(&fp_wakelock, WAKE_LOCK_SUSPEND, "fp_wakelock");
     wake_lock_init(&gf_cmd_wakelock, WAKE_LOCK_SUSPEND, "gf_cmd_wakelock");
     pr_err("register goodix_fp_ok\n");
