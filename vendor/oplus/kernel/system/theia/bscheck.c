@@ -809,11 +809,11 @@ static int __init black_screen_check_init(void)
 	int ret = 0;
 
 	g_black_data.fb_notif.notifier_call = black_fb_notifier_callback;
-#ifdef CONFIG_DRM_MSM
-	msm_drm_register_client(&g_black_data.fb_notif);
-#else
+//#ifdef CONFIG_DRM_MSM
+	//msm_drm_register_client(&g_black_data.fb_notif);
+//#else
 	fb_register_client(&g_black_data.fb_notif);
-#endif
+//#endif
     if (ret) {
 		g_black_data.status = ret;
         printk("block_screen_init register fb client fail\n");
