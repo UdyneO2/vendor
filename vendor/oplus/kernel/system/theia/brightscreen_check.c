@@ -686,11 +686,11 @@ static int __init bright_screen_check_init(void)
 
 
 	g_bright_data.fb_notif.notifier_call = bright_fb_notifier_callback;
-#ifdef CONFIG_DRM_MSM
-	msm_drm_register_client(&g_bright_data.fb_notif);
-#else
+//#ifdef CONFIG_DRM_MSM
+	//msm_drm_register_client(&g_bright_data.fb_notif);
+//#else
 	fb_register_client(&g_bright_data.fb_notif);
-#endif
+//#endif
     if (ret) {
 		g_bright_data.status = ret;
         printk("bright block_screen_init register fb client fail\n");
