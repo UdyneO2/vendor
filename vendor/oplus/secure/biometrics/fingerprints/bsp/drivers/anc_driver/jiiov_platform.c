@@ -1099,9 +1099,9 @@ static int anc_remove(anc_device_t *pdev)
 #else
     wake_lock_destroy(&data->fp_wakelock);
 #endif
-#ifdef ANC_USE_NETLINK
+/*#ifdef ANC_USE_NETLINK
     msm_drm_unregister_client(&data->notifier);
-#endif
+#endif*/
     cdev_del(&data->cdev);
     device_destroy(data->dev_class, data->dev_num);
     unregister_chrdev_region(data->dev_num, 1);
