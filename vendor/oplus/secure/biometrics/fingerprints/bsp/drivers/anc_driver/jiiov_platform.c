@@ -1041,15 +1041,15 @@ static int anc_probe(anc_device_t *pdev)
     wake_lock_init(&dev_data->fp_wakelock, WAKE_LOCK_SUSPEND, "anc_fp_wakelock");
 #endif
 
-#ifdef ANC_USE_NETLINK
-    /* Register fb notifier callback */
+/*#ifdef ANC_USE_NETLINK
+     Register fb notifier callback 
     dev_data->notifier = anc_noti_block;
     rc = msm_drm_register_client(&dev_data->notifier);
     if (rc < 0) {
         dev_err(dev, "%s: Failed to register fb notifier client\n", __func__);
         goto exit;
     }
-#endif
+#endif*/
 
     dev_info(dev, "%s: Create sysfs path = %s\n", __func__, (&dev->kobj)->name);
     rc = sysfs_create_group(&dev->kobj, &attribute_group);
